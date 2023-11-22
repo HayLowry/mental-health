@@ -8,7 +8,7 @@ function Analytics() {
       </div>
       <div>
         <Link to="/">
-          <button>Back</button>
+          <button>Home</button>
         </Link>
       </div>
     </>

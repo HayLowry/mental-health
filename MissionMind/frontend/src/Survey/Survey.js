@@ -35,6 +35,7 @@ function Survey() {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="question1">Question 1</label>
+          <br />
           <input
             type="range"
             min="1"
@@ -52,6 +53,7 @@ function Survey() {
 
         <div>
           <label htmlFor="question2">Question 2</label>
+          <br />
           <input
             type="range"
             min="1"
@@ -69,6 +71,7 @@ function Survey() {
 
         <div>
           <label htmlFor="question3">Question 3</label>
+          <br />
           <input
             type="range"
             min="1"
@@ -86,6 +89,7 @@ function Survey() {
 
         <div>
           <label htmlFor="question4">Question 4</label>
+          <br />
           <input
             type="range"
             min="1"
@@ -103,6 +107,7 @@ function Survey() {
 
         <div>
           <label htmlFor="question5">Question 5</label>
+          <br />
           <input
             type="range"
             min="1"
@@ -122,7 +127,7 @@ function Survey() {
       <br />
       <div>
         <Link to="/">
-          <button>Back</button>
+          <button>Home</button>
         </Link>
       </div>
     </>
