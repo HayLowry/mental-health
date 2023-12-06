@@ -20,6 +20,16 @@ function Survey() {
     }));
   };
 
+  // Handle button click
+  const handleButtonClick = (question, value) => {
+    setAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [question]: value,
+    }));
+  };
+
+  const smileyFaces = ["😄", "😊", "😐", "😕", "😭"];
+
   // Handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,17 +46,20 @@ function Survey() {
         <div>
           <label htmlFor="question1">Question 1</label>
           <br />
-          <input
-            type="range"
-            min="1"
-            max="5"
-            value={answers.question1}
-            onChange={(e) =>
-              handleSliderChange("question1", parseInt(e.target.value))
-            }
-            className={styles.slider}
-          />
-          <span>{answers.question1}</span>
+          {smileyFaces.map((face, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => handleButtonClick("question1", index + 1)}
+              className={styles.button} // Add your styling class
+              style={{
+                background:
+                  answers.question1 === index + 1 ? "lightblue" : "white",
+              }}
+            >
+              {face}
+            </button>
+          ))}
         </div>
 
         <br />
@@ -54,17 +67,20 @@ function Survey() {
         <div>
           <label htmlFor="question2">Question 2</label>
           <br />
-          <input
-            type="range"
-            min="1"
-            max="5"
-            value={answers.question2}
-            onChange={(e) =>
-              handleSliderChange("question2", parseInt(e.target.value))
-            }
-            className={styles.slider}
-          />
-          <span>{answers.question2}</span>
+          {smileyFaces.map((face, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => handleButtonClick("question2", index + 1)}
+              className={styles.button} // Add your styling class
+              style={{
+                background:
+                  answers.question2 === index + 1 ? "lightblue" : "white",
+              }}
+            >
+              {face}
+            </button>
+          ))}
         </div>
 
         <br />
@@ -72,17 +88,20 @@ function Survey() {
         <div>
           <label htmlFor="question3">Question 3</label>
           <br />
-          <input
-            type="range"
-            min="1"
-            max="5"
-            value={answers.question3}
-            onChange={(e) =>
-              handleSliderChange("question3", parseInt(e.target.value))
-            }
-            className={styles.slider}
-          />
-          <span>{answers.question3}</span>
+          {smileyFaces.map((face, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => handleButtonClick("question3", index + 1)}
+              className={styles.button} // Add your styling class
+              style={{
+                background:
+                  answers.question3 === index + 1 ? "lightblue" : "white",
+              }}
+            >
+              {face}
+            </button>
+          ))}
         </div>
 
         <br />
@@ -90,17 +109,20 @@ function Survey() {
         <div>
           <label htmlFor="question4">Question 4</label>
           <br />
-          <input
-            type="range"
-            min="1"
-            max="5"
-            value={answers.question4}
-            onChange={(e) =>
-              handleSliderChange("question4", parseInt(e.target.value))
-            }
-            className={styles.slider}
-          />
-          <span>{answers.question4}</span>
+          {smileyFaces.map((face, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => handleButtonClick("question4", index + 1)}
+              className={styles.button} // Add your styling class
+              style={{
+                background:
+                  answers.question4 === index + 1 ? "lightblue" : "white",
+              }}
+            >
+              {face}
+            </button>
+          ))}
         </div>
 
         <br />
@@ -108,20 +130,23 @@ function Survey() {
         <div>
           <label htmlFor="question5">Question 5</label>
           <br />
-          <input
-            type="range"
-            min="1"
-            max="5"
-            value={answers.question5}
-            onChange={(e) =>
-              handleSliderChange("question5", parseInt(e.target.value))
-            }
-            className={styles.slider}
-          />
-          <span>{answers.question5}</span>
+          {smileyFaces.map((face, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => handleButtonClick("question5", index + 1)}
+              className={styles.button} // Add your styling class
+              style={{
+                background:
+                  answers.question5 === index + 1 ? "lightblue" : "white",
+              }}
+            >
+              {face}
+            </button>
+          ))}
         </div>
         {/* Repeat similar blocks for other questions... */}
-
+        <br />
         <button type="submit">Submit</button>
       </form>
       <br />
