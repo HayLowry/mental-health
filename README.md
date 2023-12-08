@@ -29,3 +29,13 @@ npm install react
 npm install react-router-dom
 npm install axios
 ```
+
+## Database
+
+If you ever need to reset the database, delete the db.sqlite3 file, then run:
+
+```
+python3 manage.py migrate
+```
+
+And it should generate a new blank database.

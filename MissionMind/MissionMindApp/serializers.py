@@ -5,4 +5,4 @@ class SurveySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Survey 
-        fields = ('pk', 'name', 'question1', 'question2', 'question3', 'question4', 'question5')
+        fields = ('pk', 'name', 'date', 'stress', 'anxiety', 'sleep', 'homesickness', 'satisfaction', 'spirit')
