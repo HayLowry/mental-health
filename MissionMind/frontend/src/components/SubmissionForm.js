@@ -4,7 +4,6 @@ import axios from "axios";
 import { API_URL } from "../constants";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
-
 class SubmissionForm extends React.Component {
   state = {
     pk: 0,
@@ -14,24 +13,44 @@ class SubmissionForm extends React.Component {
     sleep: 3,
     homesickness: 3,
     satisfaction: 3,
-    spirit: 3
+    spirit: 3,
   };
 
   componentDidMount() {
     if (this.props.submission) {
-      const { pk, name, date, stress, anxiety, sleep, homesickness, satisfaction, spirit } = this.props.submission;
-      this.setState({ pk, name, date, stress, anxiety, sleep, homesickness, satisfaction, spirit });
+      const {
+        pk,
+        name,
+        date,
+        stress,
+        anxiety,
+        sleep,
+        homesickness,
+        satisfaction,
+        spirit,
+      } = this.props.submission;
+      this.setState({
+        pk,
+        name,
+        date,
+        stress,
+        anxiety,
+        sleep,
+        homesickness,
+        satisfaction,
+        spirit,
+      });
     }
   }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  newSubmission = e => {
+  newSubmission = (e) => {
     e.preventDefault();
     axios.post(API_URL, this.state).then(() => {
-      this.setState({ 
+      this.setState({
         pk: 0,
         name: "",
         stress: 3,
@@ -39,12 +58,12 @@ class SubmissionForm extends React.Component {
         sleep: 3,
         homesickness: 3,
         satisfaction: 3,
-        spirit: 3 
+        spirit: 3,
       });
     });
   };
 
-  editSubmission = e => {
+  editSubmission = (e) => {
     e.preventDefault();
     axios.put(API_URL + this.state.pk, this.state).then(() => {
       this.props.resetState();
@@ -52,14 +71,18 @@ class SubmissionForm extends React.Component {
     });
   };
 
-  defaultIfEmpty = value => {
+  defaultIfEmpty = (value) => {
     return value === "" ? "" : value;
   };
 
   render() {
     return (
       <div>
-        <Form onSubmit={this.props.submission ? this.editSubmission : this.newSubmission}>
+        <Form
+          onSubmit={
+            this.props.submission ? this.editSubmission : this.newSubmission
+          }
+        >
           <FormGroup>
             <Label for="name">Name:</Label>
             <br />
@@ -87,7 +110,6 @@ class SubmissionForm extends React.Component {
               value={this.defaultIfEmpty(this.state.stress)}
               className={styles.slider}
             />
-            
           </FormGroup>
           <FormGroup>
             <Label for="anxiety">Anxiety:</Label>
@@ -169,5 +191,7 @@ class SubmissionForm extends React.Component {
     );
   }
 }
+
+/////
 
 export default SubmissionForm;
